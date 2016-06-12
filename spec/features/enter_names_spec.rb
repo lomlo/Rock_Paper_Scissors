@@ -14,14 +14,11 @@ feature 'Enter names' do
   end
 end
 
-feature 'Returns rock paper or scissors' do
+xfeature 'Returns rock paper or scissors' do
   scenario 'push play button' do
-    visit('/')
-    fill_in('name', with: 'Ross')
-    click_button('Submit')
+    sign_in_and_play
     click_button('Play')
     allow(Kernel).to receive(:rand).and_return(0)
     expect(page).to have_content(['Scissors', 'Rock', 'Paper'][0])
   end
-
 end

@@ -17,13 +17,15 @@ get '/game_start' do
   erb(:game_start)
 end
 
-post '/game_set' do
-  session[:answer]= ['Scissors', 'Rock', 'Paper'][rand(0..2)]
+post '/choice' do
+  session[:choice]= params[:choice]
+  redirect '/game_play'
 end
 
 get '/game_play' do
   @name= session[:name]
-  @answer= session[:answer]
+  @choice = session[:choice]
+  @answer= ['Scissors', 'Rock', 'Paper'][rand(0..2)]
   erb(:game_start)
 end
 
