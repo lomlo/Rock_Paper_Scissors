@@ -9,9 +9,7 @@ end
 
 feature 'Enter names' do
   scenario 'submitting names' do
-    visit('/')
-    fill_in('name', with: 'Ross')
-    click_button('Submit')
+    sign_in_and_play
     expect(page).to have_content('Ross')
   end
 end
